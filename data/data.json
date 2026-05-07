@@ -17,12 +17,6 @@
         "icon": "fas fa-blog"
       },
       {
-        "type": "github",
-        "value": "jereme.dev",
-        "url": "https://jereme.dev",
-        "icon": "fab fa-github"
-      },
-      {
         "type": "linkedin",
         "value": "linkedin.com/in/jeremehancock",
         "url": "https://linkedin.com/in/jeremehancock",
