@@ -11,12 +11,6 @@
         "icon": "fas fa-envelope"
       },
       {
-        "type": "website",
-        "value": "jeremehancock.com",
-        "url": "#",
-        "icon": "fas fa-globe"
-      },
-      {
         "type": "blog",
         "value": "jereme.dev",
         "url": "https://jereme.dev",
