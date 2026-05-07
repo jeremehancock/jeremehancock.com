@@ -17,6 +17,12 @@
         "icon": "fas fa-globe"
       },
       {
+        "type": "blog",
+        "value": "jereme.dev",
+        "url": "https://jereme.dev",
+        "icon": "fas fa-blog"
+      },
+      {
         "type": "github",
         "value": "jereme.dev",
         "url": "https://jereme.dev",
