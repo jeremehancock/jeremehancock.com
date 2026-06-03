@@ -27,7 +27,8 @@
     { ins: 'cat ',  label: 'cat' },
     { run: 'tree' },
     { run: 'help' },
-    { run: 'clear' }
+    { run: 'clear' },
+    { run: 'reset' }
   ];
 
   function Terminal(els) {
