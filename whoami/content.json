@@ -3,7 +3,8 @@
   "host": "whoami",
   "profile": {
     "name": "Michael Jereme Hancock",
-    "role": "Software Developer @ Liquid Web",
+    "role": "Software Developer",
+    "location": "Liquid Web",
     "tagline": "I'm just a guy who likes to tinker.",
     "shell": "jsh",
     "github": "https://github.com/jeremehancock",
@@ -11,6 +12,11 @@
     "links": [
       {
         "label": "site",
+        "value": "jeremehancock.com",
+        "url": "https://jeremehancock.com"
+      },
+      {
+        "label": "blog",
         "value": "jereme.dev",
         "url": "https://jereme.dev"
       },
@@ -23,11 +29,6 @@
         "label": "linkedin",
         "value": "linkedin.com/in/jeremehancock",
         "url": "https://linkedin.com/in/jeremehancock"
-      },
-      {
-        "label": "projects",
-        "value": "dumbprojects.com",
-        "url": "https://dumbprojects.com"
       },
       {
         "label": "email",
@@ -45,8 +46,8 @@
         "file": "content/about/bio.txt"
       },
       "now.txt": [
-        "/now  —  what I'm up to",
-        "-----------------------",
+        "now  —  what I'm up to",
+        "======================",
         "",
         "  * Software Developer II at Liquid Web (customer control panels).",
         "  * Tinkering with Plex/Jellyfin tools: CLIX, Ludanta, Posteria.",
@@ -133,9 +134,9 @@
         "=======",
         "",
         "  email      michael@jeremehancock.com",
+        "  site       https://jeremehancock.com",
         "  blog       https://jereme.dev",
         "  linkedin   https://linkedin.com/in/jeremehancock",
-        "  projects   https://dumbprojects.com",
         "  github     https://github.com/jeremehancock",
         "",
         "Best way to reach me is email — I actually read it."
