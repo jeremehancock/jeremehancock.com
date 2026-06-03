@@ -56,12 +56,14 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 
 You *can* still double-click `index.html`, but `file://` URLs can't fetch
 `content.json`, so you'll see a small built-in fallback instead of your content.
-(GitHub Pages and every real host serve over HTTP, so deployment just works.)
+(Any real web host serves over HTTP, so deployment just works.)
 
-### Deploy to GitHub Pages
+### Host it anywhere
 
-Push to `main`, then **Settings → Pages → Source: `main` / root**.
-It'll be live at `https://<user>.github.io/whoami-web/`.
+It's just static files — deploy them wherever you like: any static host, an
+Nginx/Apache server, an object store/CDN, or a container. Upload the folder (or
+point your host at the repo) and you're live. Paths resolve correctly whether
+it's served from the site root or a subdirectory (e.g. `https://you.com/whoami/`).
 
 ## Make it yours
 
@@ -139,3 +141,7 @@ assets/
 ## License
 
 [MIT](LICENSE) © Jereme Hancock
+
+## AI Disclosure
+
+This project was created with the help of AI.

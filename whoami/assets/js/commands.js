@@ -372,6 +372,20 @@
     run: function (ctx) { ctx.term.clearScreen(); return undefined; }
   });
 
+  /* ---- reset ------------------------------------------------------- */
+  def('reset', {
+    group: 'System',
+    summary: 'start fresh, like you just opened the page',
+    usage: 'reset',
+    description: 'Reset the terminal to a clean slate: clear the screen and\n' +
+      'scrollback, return to the home directory, forget this session\'s\n' +
+      'command history, and replay the welcome banner. Unlike `clear`, this\n' +
+      'wipes your place and history too — exactly as if you had just opened\n' +
+      'the page. (Your theme is kept.)',
+    see: 'clear, motd',
+    run: function (ctx) { ctx.term.reset(); return undefined; }
+  });
+
   /* ---- echo -------------------------------------------------------- */
   def('echo', {
     group: 'System',
@@ -399,8 +413,15 @@
     group: 'System',
     summary: 'show command history',
     usage: 'history',
-    description: 'List the commands you have run this session. Press up/down\n' +
-      'at the prompt to walk back through them.',
+    description: 'List the commands you have run this session, each with a\n' +
+      'number. Re-run one with a "!" history expansion:\n\n' +
+      '  !n       run command number n        (e.g. !3)\n' +
+      '  !!       run the last command\n' +
+      '  !-2      run the command two back\n' +
+      '  !text    run the most recent command starting with "text"\n\n' +
+      'You can also press up/down at the prompt to walk through history.',
+    examples: 'history\n!1\n!!\n!cat',
+    see: 'clear, reset',
     run: function (ctx) {
       var h = ctx.term.history;
       if (!h.length) { return c.dim('(no history yet)'); }

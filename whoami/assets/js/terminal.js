@@ -49,7 +49,10 @@
     var self = this, els = this.els;
 
     els.input.addEventListener('keydown', function (e) { self._onKeyDown(e); });
-    els.input.addEventListener('input', function () { self.renderInput(); });
+    els.input.addEventListener('input', function () {
+      self.renderInput();
+      self.scroll(); // typing while scrolled up jumps the prompt back into view
+    });
     els.input.addEventListener('keyup', function () { self.renderInput(); });
     els.input.addEventListener('click', function () { self.renderInput(); });
     els.input.addEventListener('focus', function () {
@@ -249,14 +252,14 @@
       if (k === 'u') {
         e.preventDefault();
         input.value = input.value.slice(input.selectionStart);
-        this._caret(0); this.renderInput(); return;
+        this._caret(0); this.renderInput(); this.scroll(); return;
       }
-      if (k === 'a') { e.preventDefault(); this._caret(0); this.renderInput(); return; }
-      if (k === 'e') { e.preventDefault(); this._caret(input.value.length); this.renderInput(); return; }
+      if (k === 'a') { e.preventDefault(); this._caret(0); this.renderInput(); this.scroll(); return; }
+      if (k === 'e') { e.preventDefault(); this._caret(input.value.length); this.renderInput(); this.scroll(); return; }
       if (k === 'k') {
         e.preventDefault();
         input.value = input.value.slice(0, input.selectionStart);
-        this.renderInput(); return;
+        this.renderInput(); this.scroll(); return;
       }
     }
 
@@ -307,23 +310,67 @@
       ? this.draft : this.history[this.histIndex];
     this._caret(input.value.length);
     this.renderInput();
+    this.scroll(); // keep the recalled command visible
   };
 
   /* ----- submit & dispatch ----------------------------------------- */
   Terminal.prototype.submit = function () {
     var input = this.els.input;
-    var line = input.value;
+    var raw = input.value;
+    input.value = '';
+    this.renderInput();
+
+    // bash-style history expansion: !n, !-n, !!, !prefix
+    var ex = this._expandHistory(raw);
+    if (ex && ex.error) {
+      this.echoLine(raw);
+      this.write(c.red('jsh: ' + U.esc(ex.token) + ': event not found'));
+      this.histIndex = this.history.length;
+      this.draft = '';
+      this.renderPrompt();
+      this.scroll();
+      return;
+    }
+    var line = ex ? ex.command : raw;     // run (and record) the expanded command
     this.echoLine(line);
+
     if (line.trim() && this.history[this.history.length - 1] !== line.trim()) {
       this.history.push(line.trim());
     }
     this.histIndex = this.history.length;
     this.draft = '';
-    input.value = '';
-    this.renderInput();
     this.run(line);
     this.renderPrompt();
     this.scroll();
+  };
+
+  // Expand a leading history reference. Returns:
+  //   null                          -> no expansion (line doesn't start with !)
+  //   { command: '...' }            -> the expanded command line
+  //   { error: true, token: '!x' }  -> the reference didn't resolve
+  Terminal.prototype._expandHistory = function (raw) {
+    var line = raw.replace(/^\s+/, '');
+    if (line.charAt(0) !== '!') { return null; }
+
+    var m = line.match(/^(\S+)([\s\S]*)$/);
+    var token = m[1], rest = m[2];
+    if (token === '!') { return null; }            // a lone '!' is literal
+
+    var h = this.history, idx = -1, ref = token.slice(1);
+    if (token === '!!') {
+      idx = h.length - 1;                           // last command
+    } else if (/^-?\d+$/.test(ref)) {
+      var n = parseInt(ref, 10);
+      if (n > 0) { idx = n - 1; }                   // !n  (1-based, as `history` shows)
+      else if (n < 0) { idx = h.length + n; }       // !-n (count back from the end)
+    } else {
+      for (var i = h.length - 1; i >= 0; i--) {     // !prefix (most recent match)
+        if (h[i].indexOf(ref) === 0) { idx = i; break; }
+      }
+    }
+
+    if (idx < 0 || idx >= h.length) { return { error: true, token: token }; }
+    return { command: h[idx] + rest };
   };
 
   Terminal.prototype.run = function (line) {
@@ -431,6 +478,7 @@
     input.value = input.value.slice(0, start) + replacement + input.value.slice(pos);
     this._caret(start + replacement.length);
     this.renderInput();
+    this.scroll(); // keep the completed line visible
   };
 
   /* small completion helpers */
@@ -511,6 +559,21 @@
       i++;
       setTimeout(tick, i <= banner.length ? 55 : 28); // banner a touch slower
     })();
+  };
+
+  // Start over as if the page had just been opened: clear everything, go home,
+  // forget this session, restart the clock, and replay the boot animation.
+  // (The saved theme is kept — that's what loads on a real fresh open.)
+  Terminal.prototype.reset = function () {
+    this.history = [];
+    this.histIndex = 0;
+    this.draft = '';
+    this.cwd = FS.HOME;
+    this.bootTime = Date.now();
+    this.els.input.value = '';
+    this.ready = false;       // let boot() run its reveal again
+    this.clearScreen();
+    this.boot();
   };
 
   global.Terminal = Terminal;
