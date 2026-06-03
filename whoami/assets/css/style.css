@@ -184,25 +184,18 @@ body {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   height: 38px;
-  padding: 0 12px;
+  padding: 0 8px;
   background: var(--titlebar);
   border-bottom: 1px solid var(--border);
   user-select: none;
 }
-.dots { display: flex; gap: 8px; }
-.dot {
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
-}
-.dot.red    { background: #ff5f57; }
-.dot.yellow { background: #febc2e; }
-.dot.green  { background: #28c840; }
+/* empty spacer balances the window buttons so the title stays centered */
+.tb-spacer { flex: 1 1 0; }
 .title {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
   text-align: center;
   font-size: 12.5px;
   color: var(--gray);
@@ -210,7 +203,33 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.titlebar-spacer { width: 52px; flex: 0 0 auto; } /* balances the dots */
+
+/* Linux/GNOME-style window controls on the right (decorative) */
+.winbtns { display: flex; align-items: center; justify-content: flex-end; gap: 2px; flex: 1 1 0; }
+.winbtn {
+  position: relative;
+  width: 28px; height: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+  color: var(--gray);
+  cursor: default;
+}
+.winbtn:hover { background: color-mix(in srgb, var(--fg) 14%, transparent); color: var(--fg); }
+.winbtn.close:hover { background: #e04a3f; color: #fff; }
+/* icons drawn in CSS so they don't depend on any font */
+.winbtn.min::before {
+  content: ""; width: 10px; height: 1.5px; border-radius: 1px; background: currentColor;
+}
+.winbtn.max::before {
+  content: ""; width: 9px; height: 9px; border: 1.5px solid currentColor; border-radius: 2px;
+}
+.winbtn.close::before,
+.winbtn.close::after {
+  content: ""; position: absolute; width: 12px; height: 1.5px;
+  border-radius: 1px; background: currentColor;
+}
+.winbtn.close::before { transform: rotate(45deg); }
+.winbtn.close::after  { transform: rotate(-45deg); }
 
 /* ----- the screen ---------------------------------------------------- */
 .screen {
