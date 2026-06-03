@@ -39,8 +39,8 @@
     <div class="titlebar" id="titlebar">
       <span class="tb-spacer" aria-hidden="true"></span>
       <div class="title" id="title-text">guest@whoami: ~</div>
-      <div class="winbtns" aria-hidden="true">
-        <span class="winbtn min"></span><span class="winbtn max"></span><span class="winbtn close"></span>
+      <div class="winbtns">
+        <span class="winbtn min" role="button" aria-label="Minimize"></span><span class="winbtn max" role="button" aria-label="Maximize"></span><span class="winbtn close" role="button" aria-label="Close"></span>
       </div>
     </div>
 
@@ -51,7 +51,15 @@
 
     <!-- touch-only quick-command bar (hidden on desktop); populated by JS -->
     <div class="quickbar" id="quickbar" role="toolbar" aria-label="Quick commands"></div>
+
+    <!-- drag-to-resize handles (desktop only) -->
+    <div class="resize-handles" aria-hidden="true">
+      <span class="rh n" data-dir="n"></span><span class="rh s" data-dir="s"></span><span class="rh e" data-dir="e"></span><span class="rh w" data-dir="w"></span><span class="rh ne" data-dir="ne"></span><span class="rh nw" data-dir="nw"></span><span class="rh se" data-dir="se"></span><span class="rh sw" data-dir="sw"></span>
+    </div>
   </main>
+
+  <!-- shown after the window is "closed" (desktop only) -->
+  <button id="restart-terminal" class="restart-btn" hidden>&gt; restart terminal</button>
 
   <!-- the real, invisible input: captures keys, paste, and the mobile keyboard.
        The data-*ignore attrs + tabindex tell password managers (Bitwarden,
@@ -73,6 +81,7 @@
   <script src="assets/js/filesystem.js"></script>
   <script src="assets/js/commands.js"></script>
   <script src="assets/js/terminal.js"></script>
+  <script src="assets/js/window.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

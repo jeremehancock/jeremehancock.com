@@ -74,6 +74,16 @@
     global.term = term; // handy for poking at it from the console
     term.boot();
 
+    // desktop window chrome: move / resize / minimize / maximize / close
+    if (global.WindowManager) {
+      global.wm = new global.WindowManager(term, {
+        root: els.root,
+        titlebar: byId('titlebar'),
+        restartBtn: byId('restart-terminal'),
+        handles: Array.prototype.slice.call(document.querySelectorAll('.rh'))
+      });
+    }
+
     global.addEventListener('focus', function () { term.focus(); });
   }
 

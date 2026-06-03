@@ -135,6 +135,7 @@ assets/
     ├── filesystem.js    the filesystem engine (builds the tree, resolves paths)
     ├── commands.js      every command + its man page
     ├── terminal.js      the shell engine (input, history, completion, quick-bar)
+    ├── window.js        desktop window chrome (move, resize, min/max/close)
     └── main.js          loads content.json, then wires it up and boots
 ```
 

@@ -146,11 +146,14 @@ body {
 
 /* ----- the window ---------------------------------------------------- */
 .terminal {
-  position: relative;
+  position: fixed;                       /* a real, movable window (desktop) */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);      /* centered until you grab it */
   display: flex;
   flex-direction: column;
   touch-action: manipulation; /* kill the 300ms tap delay on mobile */
-  width: min(960px, 100%);
+  width: min(960px, 92vw);
   height: min(86vh, 760px);
   background: var(--bg);
   border: 1px solid var(--border);
@@ -161,6 +164,17 @@ body {
     0 8px 30px -20px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
+
+/* window states (desktop) */
+.terminal.is-maximized { border-radius: 0; }
+.terminal.is-minimized { cursor: pointer; }
+.terminal.is-minimized .screen,
+.terminal.is-minimized .quickbar,
+.terminal.is-minimized .resize-handles,
+.terminal.is-maximized .resize-handles { display: none; }
+.terminal.is-minimized .titlebar { cursor: pointer; }
+.terminal.is-closed { display: none; }
+.terminal.is-dragging, .terminal.is-resizing { user-select: none; }
 
 /* scanline overlay for the CRT-ish themes */
 .terminal::after {
@@ -212,7 +226,7 @@ body {
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 6px;
   color: var(--gray);
-  cursor: default;
+  cursor: pointer;
 }
 .winbtn:hover { background: color-mix(in srgb, var(--fg) 14%, transparent); color: var(--fg); }
 .winbtn.close:hover { background: #e04a3f; color: #fff; }
@@ -230,6 +244,41 @@ body {
 }
 .winbtn.close::before { transform: rotate(45deg); }
 .winbtn.close::after  { transform: rotate(-45deg); }
+
+/* ----- drag-to-resize handles (desktop) ----------------------------- */
+.resize-handles { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.rh { position: absolute; pointer-events: auto; }
+.rh.n  { top: 0;    left: 10px; right: 10px; height: 6px; cursor: ns-resize; }
+.rh.s  { bottom: 0; left: 10px; right: 10px; height: 6px; cursor: ns-resize; }
+.rh.e  { right: 0;  top: 10px;  bottom: 10px; width: 6px; cursor: ew-resize; }
+.rh.w  { left: 0;   top: 10px;  bottom: 10px; width: 6px; cursor: ew-resize; }
+.rh.ne { top: 0;    right: 0; width: 13px; height: 13px; cursor: nesw-resize; }
+.rh.sw { bottom: 0; left: 0;  width: 13px; height: 13px; cursor: nesw-resize; }
+.rh.nw { top: 0;    left: 0;  width: 13px; height: 13px; cursor: nwse-resize; }
+.rh.se { bottom: 0; right: 0; width: 13px; height: 13px; cursor: nwse-resize; }
+
+/* ----- "restart terminal" button (shown after close) ---------------- */
+.restart-btn {
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--green);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 14px 50px -14px rgba(0, 0, 0, 0.7);
+  text-shadow: var(--glow);
+}
+.restart-btn:hover {
+  border-color: var(--green);
+  background: color-mix(in srgb, var(--green) 14%, var(--bg));
+}
+.restart-btn[hidden] { display: none; }
 
 /* ----- the screen ---------------------------------------------------- */
 .screen {
@@ -401,6 +450,10 @@ a:hover { text-decoration-style: solid; }
     justify-content: flex-start;
   }
   .terminal {
+    position: relative;        /* in-flow full-bleed, not a floating window */
+    left: auto;
+    top: auto;
+    transform: none;
     width: 100%;
     height: 100vh;
     height: 100dvh;
@@ -410,6 +463,9 @@ a:hover { text-decoration-style: solid; }
   }
   .screen { padding: 11px 12px 14px; }
   .titlebar { height: 34px; }
+  /* no window chrome on mobile: hide buttons, resize handles, spacer */
+  .winbtns, .resize-handles, .tb-spacer { display: none; }
+  .title { flex: 1 1 auto; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
