@@ -2,6 +2,23 @@
 <html lang="en" data-theme="default">
 <head>
   <meta charset="utf-8" />
+  <!-- Resolve relative asset/content paths correctly no matter how the page is
+       reached: /dir/, /dir (no trailing slash), or /dir/index.html. This makes
+       the site work when deployed in a subdirectory. Must run before the CSS/JS
+       and the content.json fetch below. -->
+  <script>
+    (function () {
+      var url = location.href.split('#')[0].split('?')[0];
+      if (url.charAt(url.length - 1) !== '/') {
+        var seg = url.slice(url.lastIndexOf('/') + 1);
+        // a dot in the last segment means it's a file (index.html) -> use its dir
+        url = seg.indexOf('.') === -1 ? url + '/' : url.slice(0, url.lastIndexOf('/') + 1);
+      }
+      var base = document.createElement('base');
+      base.href = url;
+      document.head.appendChild(base);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>whoami — Jereme Hancock</title>
   <meta name="description" content="An interactive terminal résumé. Type whoami, ls, cd, cat, and man to explore." />

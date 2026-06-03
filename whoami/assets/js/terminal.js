@@ -208,7 +208,7 @@
   Terminal.prototype.motdTextLines = function () {
     var ts = new Date().toDateString() + ' ' + new Date().toLocaleTimeString();
     function row(cmd, desc) {
-      return '  ' + c.green(U.pad(cmd, 11)) + c.dim('→  ' + desc);
+      return '  ' + c.green(U.pad(cmd, 11)) + c.dim('->  ' + desc);
     }
     return [
       c.dim('Last login: ' + ts + ' on ttyS0'),

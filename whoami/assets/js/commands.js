@@ -198,10 +198,10 @@
         keys.forEach(function (n, idx) {
           var last = idx === keys.length - 1;
           var child = node.children[n];
-          lines.push(prefix + (last ? '└── ' : '├── ') + paintEntry(n, child, false));
+          lines.push(prefix + (last ? '`-- ' : '|-- ') + paintEntry(n, child, false));
           if (child.type === 'dir') {
             nDirs++;
-            walk(child, prefix + (last ? '    ' : '│   '));
+            walk(child, prefix + (last ? '    ' : '|   '));
           } else { nFiles++; }
         });
       })(r.node, '');
@@ -292,7 +292,7 @@
       'prints the short version of me — the person who built this.',
     see: 'neofetch, cat',
     run: function () {
-      var bar = c.accent('▌');
+      var bar = c.accent('|');
       var L = ['', bar + '  ' + U.wrap(c.accent(P.name), 'bold')];
 
       var roleLine = P.role || '';
@@ -313,7 +313,7 @@
       });
       if (P.shell) { L.push('   ' + c.dim(U.pad('shell', 10)) + P.shell + ' (this thing)'); }
 
-      L.push('', '   ' + c.dim('more →  ') + c.green('cat about/bio.txt') +
+      L.push('', '   ' + c.dim('more ->  ') + c.green('cat about/bio.txt') +
         c.dim('  ·  ') + c.green('ls projects'));
       return L.join('\n');
     }
@@ -351,7 +351,7 @@
         field('CPU', 'Caffeine @ ' + (new Date().getHours() < 12 ? 'low' : 'high')),
         '',
         ['clr-red','clr-yellow','clr-green','clr-cyan','clr-blue','clr-magenta']
-          .map(function (k) { return U.wrap('███', k); }).join('')
+          .map(function (k) { return U.wrap('###', k); }).join('')
       ].filter(function (x) { return x !== null; });
       var rows = Math.max(logo.length, info.length), out = [], i;
       for (i = 0; i < rows; i++) {
