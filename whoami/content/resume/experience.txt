@@ -1,0 +1,47 @@
+work history
+============
+
+Liquid Web  ·  liquidweb.com
+  2021 – now    Software Developer II
+  2016 – 2021   Software Developer I
+    - UI development for our customer-facing control panels.
+    - Full-stack development in a fast-paced organization.
+    - QE/QA tasks across a variety of projects.
+
+Rackspace  ·  rackspace.com
+  2014 – 2016   Product Manager II
+    - Managed development of the Cloud Sites Control Panel.
+    - Worked closely with Engineering and System Operations to
+      drive improvements to the Cloud Sites product.
+    - Kept the product focused on continuous improvement.
+  2013 – 2014   Automation Engineer I
+    - Built and maintained procedures to keep the support
+      department running efficiently.
+    - Built web applications for customers and support staff.
+    - Liaised with the Development and Engineering teams.
+  2012 – 2013   Linux System Admin I
+    - Delivered Fanatical support via phone, chat, and tickets.
+    - Troubleshot complex issues in load-balanced, clustered
+      hosting environments.
+    - Handled various levels of customer escalations.
+  2011 – 2012   Support Technician
+    - Delivered Fanatical support via phone, chat, and tickets.
+    - Troubleshot complex hosting issues.
+    - Handled various levels of customer escalations.
+
+Freelance  ·  2004 – present
+  Web Design / Development
+    - Designed custom websites for individuals, organizations,
+      and businesses.
+    - Provided responsive support via email, phone, and forums.
+    - Handled SEO and ongoing monthly maintenance.
+
+NIMH  ·  nimh.nih.gov
+  2004 – 2005   Program Assistant
+    - Advised Principal Investigators applying for research
+      confidentiality certificates.
+    - Reviewed financial-disclosure, outside-activity, and
+      travel forms for all NIMH employees.
+    - Built information systems for managing and reporting data.
+
+See also:  cat resume/education.txt

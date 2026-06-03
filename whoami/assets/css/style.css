@@ -1,0 +1,399 @@
+/* =========================================================================
+ * style.css — terminal window chrome, the screen, and the themes.
+ * ========================================================================= */
+
+/* ----- palette (default: a calm dark theme) -------------------------- */
+:root,
+:root[data-theme="default"] {
+  --bg:        #11131a;
+  --bg-deep:   #080a0f;
+  --fg:        #c8d3f5;
+  --green:     #9ece6a;
+  --blue:      #7aa2f7;
+  --cyan:      #7dcfff;
+  --yellow:    #e0af68;
+  --red:       #f7768e;
+  --magenta:   #bb9af7;
+  --orange:    #ff9e64;
+  --gray:      #5a6488;
+  --white:     #c0caf5;
+  --accent:    #2ac3de;
+  --link:      #7dcfff;
+  --titlebar:  #1a1d27;
+  --border:    #262a39;
+  --selection: #2d4f67;
+  --cursor-bg: var(--green);
+  --cursor-fg: var(--bg);
+  --glow:      none;
+  --scan:      0;
+}
+
+:root[data-theme="matrix"] {
+  --bg:        #020a02;
+  --bg-deep:   #000300;
+  --fg:        #2ee66b;
+  --green:     #5cff8a;
+  --blue:      #36d27a;
+  --cyan:      #7dffb0;
+  --yellow:    #b6ff7a;
+  --red:       #ff5f5f;
+  --magenta:   #69ffa1;
+  --orange:    #9dff5c;
+  --gray:      #1f7a42;
+  --white:     #d6ffe2;
+  --accent:    #39ff14;
+  --link:      #7dffb0;
+  --titlebar:  #04140a;
+  --border:    #0c351c;
+  --selection: #0c5a2c;
+  --cursor-bg: #39ff14;
+  --cursor-fg: #001a08;
+  --glow:      0 0 4px currentColor;
+  --scan:      0.06;
+}
+
+:root[data-theme="amber"] {
+  --bg:        #1a1000;
+  --bg-deep:   #0c0800;
+  --fg:        #ffb000;
+  --green:     #ffc640;
+  --blue:      #ff9d2f;
+  --cyan:      #ffd277;
+  --yellow:    #ffd277;
+  --red:       #ff6a3d;
+  --magenta:   #ffae42;
+  --orange:    #ff8c1a;
+  --gray:      #99631a;
+  --white:     #ffe1a8;
+  --accent:    #ffcf4d;
+  --link:      #ffd277;
+  --titlebar:  #241600;
+  --border:    #4a2f08;
+  --selection: #5a3a00;
+  --cursor-bg: #ffb000;
+  --cursor-fg: #1a1000;
+  --glow:      0 0 4px currentColor;
+  --scan:      0.07;
+}
+
+:root[data-theme="dracula"] {
+  --bg:        #282a36;
+  --bg-deep:   #191a21;
+  --fg:        #f8f8f2;
+  --green:     #50fa7b;
+  --blue:      #bd93f9;
+  --cyan:      #8be9fd;
+  --yellow:    #f1fa8c;
+  --red:       #ff5555;
+  --magenta:   #ff79c6;
+  --orange:    #ffb86c;
+  --gray:      #6272a4;
+  --white:     #f8f8f2;
+  --accent:    #bd93f9;
+  --link:      #8be9fd;
+  --titlebar:  #21222c;
+  --border:    #383a4a;
+  --selection: #44475a;
+  --cursor-bg: #f8f8f2;
+  --cursor-fg: #282a36;
+  --glow:      none;
+  --scan:      0;
+}
+
+:root[data-theme="light"] {
+  --bg:        #fdf6e3;
+  --bg-deep:   #d8d2c0;
+  --fg:        #586e75;
+  --green:     #859900;
+  --blue:      #268bd2;
+  --cyan:      #2aa198;
+  --yellow:    #b58900;
+  --red:       #dc322f;
+  --magenta:   #d33682;
+  --orange:    #cb4b16;
+  --gray:      #93a1a1;
+  --white:     #073642;
+  --accent:    #268bd2;
+  --link:      #268bd2;
+  --titlebar:  #eee8d5;
+  --border:    #cfc9b6;
+  --selection: #e3dcc4;
+  --cursor-bg: #586e75;
+  --cursor-fg: #fdf6e3;
+  --glow:      none;
+  --scan:      0;
+}
+
+/* ----- reset-ish ----------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; max-width: 100%; overflow-x: hidden; }
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0px, 2.4vmin, 28px);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb, var(--accent) 7%, var(--bg-deep)), var(--bg-deep));
+  color: var(--fg);
+  font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code",
+               "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- the window ---------------------------------------------------- */
+.terminal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  touch-action: manipulation; /* kill the 300ms tap delay on mobile */
+  width: min(960px, 100%);
+  height: min(86vh, 760px);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--fg) 8%, transparent) inset,
+    0 30px 80px -30px rgba(0, 0, 0, 0.85),
+    0 8px 30px -20px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+/* scanline overlay for the CRT-ish themes */
+.terminal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, var(--scan)) 0px,
+    rgba(0, 0, 0, var(--scan)) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 1;
+}
+
+/* ----- title bar ----------------------------------------------------- */
+.titlebar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 38px;
+  padding: 0 12px;
+  background: var(--titlebar);
+  border-bottom: 1px solid var(--border);
+  user-select: none;
+}
+.dots { display: flex; gap: 8px; }
+.dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
+}
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green  { background: #28c840; }
+.title {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.titlebar-spacer { width: 52px; flex: 0 0 auto; } /* balances the dots */
+
+/* ----- the screen ---------------------------------------------------- */
+.screen {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 16px 18px;
+  cursor: text;
+  scroll-behavior: smooth;
+}
+.screen, .screen * { text-shadow: var(--glow); }
+
+.output .block,
+.input-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.block { margin: 0; max-width: 100%; }
+.block:empty { height: 1.5em; }       /* a printed blank line keeps its height */
+.cmd-echo { margin-top: 2px; }
+
+/* ASCII art (banner, neofetch, tree, cowsay): never wrap. Instead shrink the
+   font so it fits narrow screens, and scroll horizontally only as a last
+   resort for anything wider than the screen even when shrunk. */
+.output .block.art {
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  overflow-x: auto;
+  overflow-y: hidden;
+  font-size: min(1em, 2.9vw);
+  line-height: 1.35;
+  -webkit-overflow-scrolling: touch;
+}
+.output .block.art::-webkit-scrollbar { height: 6px; }
+.output .block.art::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+
+/* ----- the live input line ------------------------------------------ */
+.input-line { display: block; }
+.prompt { white-space: pre; }
+.cmd { white-space: pre-wrap; }
+
+.cursor {
+  background: var(--cursor-bg);
+  color: var(--cursor-fg);
+  border-radius: 1px;
+}
+.terminal.focused .cursor { animation: blink 1.05s steps(1, end) infinite; }
+.terminal:not(.focused) .cursor {
+  background: transparent;
+  color: inherit;
+  box-shadow: inset 0 0 0 1.5px var(--cursor-bg);
+}
+@keyframes blink {
+  0%, 50%   { background: var(--cursor-bg); color: var(--cursor-fg); }
+  50.01%, 100% { background: transparent; color: inherit; }
+}
+
+/* the actual input element lives off-screen */
+.hidden-input {
+  position: fixed;
+  top: 0; left: 0;
+  width: 1px; height: 1px;
+  padding: 0; border: 0;
+  opacity: 0;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  z-index: -1;
+  /* 16px stops iOS Safari from zooming the page when the keyboard opens */
+  font-size: 16px;
+}
+
+/* ----- colours ------------------------------------------------------- */
+.clr-green   { color: var(--green); }
+.clr-blue    { color: var(--blue); }
+.clr-cyan    { color: var(--cyan); }
+.clr-yellow  { color: var(--yellow); }
+.clr-red     { color: var(--red); }
+.clr-magenta { color: var(--magenta); }
+.clr-orange  { color: var(--orange); }
+.clr-white   { color: var(--white); }
+.clr-accent  { color: var(--accent); }
+.clr-gray, .dim { color: var(--gray); }
+.bold { font-weight: 700; }
+
+a {
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration-style: solid; }
+
+/* ----- selection + scrollbar ---------------------------------------- */
+::selection { background: var(--selection); color: var(--fg); }
+.screen::-webkit-scrollbar { width: 10px; }
+.screen::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+  border: 2px solid var(--bg);
+}
+.screen::-webkit-scrollbar-track { background: transparent; }
+.screen { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+
+/* ----- quick-command bar (touch only) ------------------------------- */
+/* Hidden by default so the desktop experience stays a pure terminal. */
+.quickbar { display: none; }
+@media (hover: none) and (pointer: coarse) { .quickbar { display: flex; } }
+@media (max-width: 680px) { .quickbar { display: flex; } }
+
+.quickbar {
+  position: relative;
+  z-index: 4;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  padding-bottom: max(7px, env(safe-area-inset-bottom));
+  background: var(--titlebar);
+  border-top: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.quickbar::-webkit-scrollbar { display: none; }
+
+.qchip {
+  flex: 0 0 auto;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 7%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 11px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.1s ease, border-color 0.1s ease;
+}
+.qchip:active {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+.qkey {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  font-weight: 700;
+  min-width: 36px;
+  text-align: center;
+}
+.qsep { flex: 0 0 auto; width: 1px; height: 18px; background: var(--border); margin: 0 3px; }
+
+/* ----- small screens: go full-bleed --------------------------------- */
+@media (max-width: 680px) {
+  body {
+    padding: 0;
+    font-size: 13px;
+    align-items: stretch;     /* pin the terminal to the top, not centered */
+    justify-content: flex-start;
+  }
+  .terminal {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    height: var(--vvh, 100dvh); /* track the visible viewport (keyboard-aware) */
+    border: 0;
+    border-radius: 0;
+  }
+  .screen { padding: 11px 12px 14px; }
+  .titlebar { height: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal.focused .cursor { animation: none; }
+  .screen { scroll-behavior: auto; }
+}

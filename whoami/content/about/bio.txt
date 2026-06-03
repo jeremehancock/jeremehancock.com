@@ -1,0 +1,12 @@
+Hi, I'm Michael Jereme Hancock — though most people just call me Jereme.
+I'm just a guy who likes to tinker.
+
+By day I'm a Software Developer at Liquid Web, building customer-facing
+control panels and doing full-stack work. By night I build things for the
+fun of it: Plex and Jellyfin tools like CLIX, Ludanta, and Posteria, a pile
+of "dumb projects," and a homelab I can't stop documenting.
+
+I've been making websites since 2004 and never really stopped. If something
+looks like it could be automated or self-hosted, I'll probably try.
+
+Keep exploring:  cat about/now.txt  ·  ls projects  ·  cd resume

@@ -1,0 +1,159 @@
+{
+  "user": "guest",
+  "host": "whoami",
+  "profile": {
+    "name": "Michael Jereme Hancock",
+    "role": "Software Developer @ Liquid Web",
+    "tagline": "I'm just a guy who likes to tinker.",
+    "shell": "jsh",
+    "github": "https://github.com/jeremehancock",
+    "email": "michael@jeremehancock.com",
+    "links": [
+      {
+        "label": "site",
+        "value": "jereme.dev",
+        "url": "https://jereme.dev"
+      },
+      {
+        "label": "github",
+        "value": "github.com/jeremehancock",
+        "url": "https://github.com/jeremehancock"
+      },
+      {
+        "label": "linkedin",
+        "value": "linkedin.com/in/jeremehancock",
+        "url": "https://linkedin.com/in/jeremehancock"
+      },
+      {
+        "label": "projects",
+        "value": "dumbprojects.com",
+        "url": "https://dumbprojects.com"
+      },
+      {
+        "label": "email",
+        "value": "michael@jeremehancock.com",
+        "url": "mailto:michael@jeremehancock.com"
+      }
+    ]
+  },
+  "tree": {
+    "README.md": {
+      "file": "content/README.md"
+    },
+    "about": {
+      "bio.txt": {
+        "file": "content/about/bio.txt"
+      },
+      "now.txt": [
+        "/now  —  what I'm up to",
+        "-----------------------",
+        "",
+        "  * Software Developer II at Liquid Web (customer control panels).",
+        "  * Tinkering with Plex/Jellyfin tools: CLIX, Ludanta, Posteria.",
+        "  * Documenting the homelab and shipping the odd dumb project.",
+        "",
+        "The fun stuff lives at dumbprojects.com."
+      ]
+    },
+    "projects": {
+      "README.md": [
+        "projects/",
+        "=========",
+        "",
+        "Things I've built. `cat` any of them for details:",
+        "",
+        "  clix.md                Plex terminal media player",
+        "  homelab.md             Offline homelab docs",
+        "  ludanta.md             Now Playing for Plex/Jellyfin",
+        "  posteria.md            Plex poster management app",
+        "  ai-game-collection.md  AI-powered games",
+        "  random-goat.md         Random goat gifs",
+        "",
+        "More at dumbprojects.com · github.com/jeremehancock"
+      ],
+      "clix.md": [
+        "# CLIX",
+        "",
+        "A Plex terminal media player — browse and play your Plex\nlibrary right from the command line.",
+        "",
+        "  link:  https://github.com/jeremehancock/CLIX"
+      ],
+      "homelab.md": [
+        "# homelab.md",
+        "",
+        "Offline homelab documentation — your homelab, documented in\nmarkdown and served locally.",
+        "",
+        "  link:  https://github.com/jeremehancock/homelab.md"
+      ],
+      "ludanta.md": [
+        "# Ludanta",
+        "",
+        "A \"Now Playing\" display for Plex and Jellyfin.",
+        "",
+        "  link:  https://github.com/jeremehancock/Ludanta"
+      ],
+      "posteria.md": [
+        "# Posteria",
+        "",
+        "A web app for managing your Plex posters.",
+        "",
+        "  link:  https://posteria.app"
+      ],
+      "ai-game-collection.md": [
+        "# AI Game Collection",
+        "",
+        "A collection of AI-powered games.",
+        "",
+        "  link:  https://aigamecollection.com"
+      ],
+      "random-goat.md": [
+        "# Random Goat",
+        "",
+        "Looking for random goat gifs? Of course you are.",
+        "",
+        "  link:  https://randomgoat.com"
+      ]
+    },
+    "resume": {
+      "experience.txt": {
+        "file": "content/resume/experience.txt"
+      },
+      "education.txt": [
+        "education",
+        "=========",
+        "",
+        "Northwestern Oklahoma State University (NWOSU)",
+        "  B.S., Business Administration",
+        "    - Selected as Most Promising E-commerce student by faculty."
+      ]
+    },
+    "contact": {
+      "links.txt": [
+        "contact",
+        "=======",
+        "",
+        "  email      michael@jeremehancock.com",
+        "  blog       https://jereme.dev",
+        "  linkedin   https://linkedin.com/in/jeremehancock",
+        "  projects   https://dumbprojects.com",
+        "  github     https://github.com/jeremehancock",
+        "",
+        "Best way to reach me is email — I actually read it."
+      ]
+    },
+    ".secret": {
+      "flag.txt": [
+        "         .--.",
+        "        |o_o |   well, well, well...",
+        "        |:_/ |   you actually went looking.",
+        "       //   \\ \\",
+        "      (|     | )  respect. since you're here, try these:",
+        "     /'\\_   _/`\\",
+        "     \\___)=(___/     cowsay · neofetch · theme amber",
+        "                     and poke around dumbprojects.com",
+        "",
+        "  Curiosity is the whole job. Keep poking."
+      ]
+    }
+  }
+}
