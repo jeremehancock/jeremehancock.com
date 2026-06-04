@@ -27,6 +27,12 @@
         "value": "dumbprojects.com",
         "url": "https://dumbprojects.com",
         "icon": "fas fa-globe"
+      },
+      {
+        "type": "website",
+        "value": "whoami.jereme.dev",
+        "url": "https://whoami.jereme.dev",
+        "icon": "fas fa-terminal"
       }
     ]
   },
