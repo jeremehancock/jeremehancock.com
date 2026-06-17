@@ -26,13 +26,19 @@
         "type": "website",
         "value": "dumbprojects.com",
         "url": "https://dumbprojects.com",
-        "icon": "fas fa-globe"
+        "icon": "fas fa-diagram-project"
       },
       {
         "type": "website",
         "value": "whoami.jereme.dev",
         "url": "https://whoami.jereme.dev",
         "icon": "fas fa-terminal"
+      }
+      {
+        "type": "website",
+        "value": "retrocities.jereme.dev",
+        "url": "https://retrocities.jereme.dev",
+        "icon": "fas fa-globe"
       }
     ]
   },
