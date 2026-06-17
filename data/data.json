@@ -23,12 +23,6 @@
         "icon": "fab fa-github"
       },
       {
-        "type": "linkedin",
-        "value": "linkedin.com/in/jeremehancock",
-        "url": "https://linkedin.com/in/jeremehancock",
-        "icon": "fab fa-linkedin"
-      },
-      {
         "type": "website",
         "value": "dumbprojects.com",
         "url": "https://dumbprojects.com",
