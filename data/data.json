@@ -1,83 +1,117 @@
 {
   "basics": {
     "name": "Michael Jereme Hancock",
+    "shortName": "Jereme Hancock",
     "image": "images/profile.jpg",
     "headline": "I'm just a guy who likes to tinker.",
+    "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project — then write about the whole mess.",
+    "roles": [
+      "Software Developer",
+      "Homelab Tinkerer",
+      "Plex Power User",
+      "Maker of Dumb Things"
+    ],
     "contacts": [
       {
         "type": "email",
+        "label": "Email",
         "value": "michael@jeremehancock.com",
         "url": "mailto:michael@jeremehancock.com",
         "icon": "fas fa-envelope"
       },
       {
-        "type": "blog",
-        "value": "jereme.dev",
-        "url": "https://jereme.dev",
-        "icon": "fas fa-blog"
-      },
-      {
         "type": "github",
+        "label": "GitHub",
         "value": "github.com/jeremehancock",
         "url": "https://github.com/jeremehancock",
         "icon": "fab fa-github"
-      },
-      {
-        "type": "website",
-        "value": "dumbprojects.com",
-        "url": "https://dumbprojects.com",
-        "icon": "fas fa-diagram-project"
-      },
-      {
-        "type": "website",
-        "value": "whoami.jereme.dev",
-        "url": "https://whoami.jereme.dev",
-        "icon": "fas fa-terminal"
-      },
-      {
-        "type": "website",
-        "value": "retrocities.jereme.dev",
-        "url": "https://retrocities.jereme.dev",
-        "icon": "fas fa-globe"
       }
     ]
   },
+  "sites": [
+    {
+      "name": "The Blog",
+      "domain": "jereme.dev",
+      "tag": "Writing",
+      "description": "Long-form thoughts, tutorials, and write-ups on development, my homelab, and whatever I'm tinkering with this week.",
+      "cta": "Read the blog",
+      "url": "https://jereme.dev",
+      "icon": "fas fa-pen-nib",
+      "accent": "#6c8cff"
+    },
+    {
+      "name": "Dumb Projects",
+      "domain": "dumbprojects.com",
+      "tag": "AI Playground",
+      "description": "A sandbox of AI-powered experiments and gloriously dumb little apps built mostly for the fun of it.",
+      "cta": "Start playing",
+      "url": "https://dumbprojects.com",
+      "icon": "fas fa-robot",
+      "accent": "#ff5c8a"
+    },
+    {
+      "name": "whoami",
+      "domain": "whoami.jereme.dev",
+      "tag": "Terminal Résumé",
+      "description": "My résumé reimagined as an interactive command line. Type a command, poke around, and explore who I am.",
+      "cta": "Run whoami",
+      "url": "https://whoami.jereme.dev",
+      "icon": "fas fa-terminal",
+      "accent": "#36e07f"
+    },
+    {
+      "name": "RetroCities",
+      "domain": "retrocities.jereme.dev",
+      "tag": "Retro Portfolio",
+      "description": "A nostalgic, GeoCities-style portfolio — blinking text, visitor counters, web rings, and all the 90s charm.",
+      "cta": "Time travel",
+      "url": "https://retrocities.jereme.dev",
+      "icon": "fas fa-compact-disc",
+      "accent": "#ffb648"
+    }
+  ],
   "projects": [
     {
       "name": "CLIX",
-      "description": "A Plex Terminal Media Player",
+      "description": "A Plex media player that lives entirely in your terminal — browse and play your library without leaving the command line.",
       "image": "images/projects/clix.png",
-      "url": "https://github.com/jeremehancock/CLIX"
+      "url": "https://github.com/jeremehancock/CLIX",
+      "tags": ["Plex", "Terminal", "Media"]
     },
     {
       "name": "homelab.md",
-      "description": "Offline Homelab Documentation",
+      "description": "Offline-first homelab documentation that keeps your whole setup organized, searchable, and available even when the internet isn't.",
       "image": "images/projects/homelab-improved-fixed.png",
-      "url": "https://github.com/jeremehancock/homelab.md"
+      "url": "https://github.com/jeremehancock/homelab.md",
+      "tags": ["Homelab", "Docs", "Offline"]
     },
     {
       "name": "Ludanta",
-      "description": "Now Playing on Plex/Jellyfin",
+      "description": "A sleek \"now playing\" display for Plex and Jellyfin — see what's streaming across your media servers at a glance.",
       "image": "images/projects/ludanta-detailed.png",
-      "url": "https://github.com/jeremehancock/Ludanta"
+      "url": "https://github.com/jeremehancock/Ludanta",
+      "tags": ["Plex", "Jellyfin", "Now Playing"]
     },
     {
       "name": "Posteria",
-      "description": "Plex Poster Management Web App",
+      "description": "A web app for managing and curating your Plex poster art, making your media library look exactly the way you want.",
       "image": "images/projects/posteria-updated.png",
-      "url": "https://posteria.app"
+      "url": "https://posteria.app",
+      "tags": ["Plex", "Posters", "Web App"]
     },
     {
       "name": "AI Game Collection",
-      "description": "Collection of AI-powered games",
+      "description": "A growing collection of small, AI-powered games you can jump into right from your browser.",
       "image": "images/projects/ai-game-collection-updated-2.png",
-      "url": "https://aigamecollection.com"
+      "url": "https://aigamecollection.com",
+      "tags": ["AI", "Games", "Web"]
     },
     {
       "name": "Random Goat",
-      "description": "Looking for random goat gifs?",
+      "description": "Exactly what it sounds like — a delightfully pointless source of random goat GIFs whenever you need one.",
       "image": "images/projects/random-goat.png",
-      "url": "https://randomgoat.com"
+      "url": "https://randomgoat.com",
+      "tags": ["Fun", "GIFs", "Web"]
     }
   ],
   "resume": [
@@ -164,7 +198,7 @@
       "company": "Freelance",
       "position": "Web Design/Development",
       "startDate": "2004",
-      "endDate": "present",
+      "endDate": "Present",
       "highlights": [
         "Designed custom special interest websites for personal use and by contract for various organizations and businesses.",
         "Provided flexible, responsive customer support via email, telephone, and online forums to resolve email and website issues.",
