@@ -316,25 +316,13 @@
 		.nav-inner {
 			display: flex;
 			align-items: center;
-			gap: 1.75rem;
-			padding: 0.5rem 0.65rem 0.5rem 1.3rem;
+			padding: 0.5rem 0.6rem;
 			background: rgba(13, 13, 24, 0.72);
 			backdrop-filter: blur(18px) saturate(160%);
 			-webkit-backdrop-filter: blur(18px) saturate(160%);
 			border: 1px solid var(--border);
 			border-radius: 50px;
 			box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.55);
-		}
-
-		.brand {
-			font-weight: 700;
-			font-size: 0.95rem;
-			letter-spacing: -0.01em;
-			white-space: nowrap;
-		}
-
-		.brand .dot {
-			color: var(--accent);
 		}
 
 		.nav-links {
@@ -781,7 +769,7 @@
 		.tl-item::before {
 			content: '';
 			position: absolute;
-			left: calc(-2.2rem + 1px);
+			left: -2.2rem;
 			top: 6px;
 			width: 16px;
 			height: 16px;
@@ -951,14 +939,6 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
-
-			.brand {
-				display: none;
-			}
-
-			.nav-inner {
-				padding: 0.5rem 0.6rem;
-			}
 		}
 
 		@media (max-width: 680px) {
@@ -1017,7 +997,6 @@
 	<div id="content" class="hidden">
 		<nav class="navbar">
 			<div class="nav-inner">
-				<a href="#home" class="brand" id="brand">Jereme<span class="dot">.</span></a>
 				<ul class="nav-links" id="navLinks">
 					<li><a href="#home" class="active">Home</a></li>
 					<li><a href="#sites">Sites</a></li>
@@ -1301,10 +1280,6 @@
 			const avatar = document.getElementById('avatar');
 			avatar.src = b.image;
 			avatar.alt = b.name;
-			if (b.shortName) {
-				document.getElementById('brand').innerHTML =
-					`${esc(b.shortName.split(' ')[0])}<span class="dot">.</span>`;
-			}
 
 			renderHeroActions(b.contacts || []);
 			renderFooterSocials(b.contacts || []);
