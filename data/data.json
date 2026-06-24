@@ -86,11 +86,11 @@
       "tags": ["Homelab", "Docs", "Offline"]
     },
     {
-      "name": "Ludanta",
-      "description": "A sleek \"now playing\" display for Plex and Jellyfin — see what's streaming across your media servers at a glance.",
-      "image": "images/projects/ludanta-detailed.png",
-      "url": "https://github.com/jeremehancock/Ludanta",
-      "tags": ["Plex", "Jellyfin", "Now Playing"]
+      "name": "Stickies",
+      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies — just open index.html in a browser.",
+      "image": "images/projects/stickies.png",
+      "url": "https://github.com/jeremehancock/Stickies",
+      "tags": ["Notes", "Private", "Offline"]
     },
     {
       "name": "Posteria",
