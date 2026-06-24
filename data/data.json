@@ -104,14 +104,14 @@
       "description": "A growing collection of small, games built using AI that you can jump into right from your browser.",
       "image": "images/projects/ai-game-collection-updated-2.png",
       "url": "https://aigamecollection.com",
-      "tags": ["AI", "Games", "Web"]
+      "tags": ["AI", "Games", "Android"]
     },
     {
       "name": "Random Goat",
       "description": "Exactly what it sounds like — a delightfully pointless source of random goat GIFs whenever you need one.",
       "image": "images/projects/random-goat.png",
       "url": "https://randomgoat.com",
-      "tags": ["Fun", "GIFs", "Web"]
+      "tags": ["Fun", "GIFs", "Goats"]
     }
   ],
   "resume": [
