@@ -88,7 +88,7 @@
     {
       "name": "Stickies",
       "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies — just open index.html in a browser.",
-      "image": "images/projects/stickies.png",
+      "image": "images/projects/stickies-updated.png",
       "url": "https://stickies.dumbprojects.com",
       "tags": ["Notes", "Private", "Offline"]
     },
