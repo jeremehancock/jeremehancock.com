@@ -93,10 +93,10 @@
       "tags": ["Notes", "Private", "Offline"]
     },
     {
-      "name": "Posteria",
+      "name": "Marquee",
       "description": "A web app for managing and curating your Plex poster art, making your media library look exactly the way you want.",
-      "image": "images/projects/posteria-updated.png",
-      "url": "https://posteria.app",
+      "image": "images/projects/marquee.png",
+      "url": "https://marquee.dumbprojects.com",
       "tags": ["Plex", "Posters", "Media"]
     },
     {
