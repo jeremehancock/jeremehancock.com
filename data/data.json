@@ -47,7 +47,7 @@
       "name": "Dumb Projects",
       "domain": "dumbprojects.com",
       "tag": "AI Playground",
-      "description": "A sandbox of experiments built with AI and gloriously dumb little apps built mostly for the fun of it.",
+      "description": "A sandbox of AI-built experiments and gloriously dumb little apps, made mostly for the fun of it.",
       "cta": "Start playing",
       "url": "https://dumbprojects.com",
       "icon": "fas fa-robot",
@@ -105,7 +105,7 @@
     },
     {
       "name": "AI Game Collection",
-      "description": "A growing collection of small, games built using AI that you can jump into right from your browser.",
+      "description": "A growing collection of small games built with AI that you can jump into right from your browser.",
       "image": "images/projects/ai-game-collection-updated-2.png",
       "url": "https://aigamecollection.com",
       "tags": ["AI", "Games", "PWA"]
@@ -123,7 +123,7 @@
       "name": "Languages",
       "icon": "fas fa-code",
       "keywords": ["PHP", "JavaScript", "TypeScript", "Python", "Bash", "SQL", "HTML", "CSS"],
-      "evidence": "Bash leads at 42 repositories, then JavaScript at 34, PHP at 33, and Python at 15, across 111 public repos."
+      "evidence": "Across 111 public repos, Bash leads with 42, then JavaScript at 34, PHP at 33, and Python at 15."
     },
     {
       "name": "Backend & APIs",
@@ -135,19 +135,19 @@
       "name": "Frontend",
       "icon": "fas fa-window-maximize",
       "keywords": ["React", "TypeScript", "MUI", "Emotion", "Storybook", "Design systems", "Next.js", "Vanilla JS", "PWA", "Service Workers", "SVG", "Accessibility"],
-      "evidence": "UnderCurrent is a React/MUI design system of roughly 100 components. homelab.md is one dependency-free file."
+      "evidence": "UnderCurrent is a React/MUI design system of roughly 100 components. homelab.md is a single dependency-free file."
     },
     {
       "name": "Testing & Code Quality",
       "icon": "fas fa-vial-circle-check",
       "keywords": ["PHPUnit", "PHPStan", "PHP-CS-Fixer", "ESLint", "Prettier", "QE/QA"],
-      "evidence": "Marquee runs PHPStan at level 10, its strictest, with 74 test files over 106 source files, gated on every push."
+      "evidence": "Marquee runs PHPStan at level 10, its strictest setting, plus 74 test files covering 106 source files, all gated on every push."
     },
     {
       "name": "DevOps & CI/CD",
       "icon": "fas fa-cubes",
       "keywords": ["Docker", "Docker Compose", "Multi-stage builds", "GitHub Actions", "Buildx", "QEMU", "Docker Hub", "Ansible", "Vagrant", "Nginx", "php-fpm"],
-      "evidence": "GitHub Actions lints, tests, builds, and ships multi-arch amd64 and arm64 images straight to Docker Hub."
+      "evidence": "GitHub Actions lints, tests, builds, and ships amd64 and arm64 images straight to Docker Hub."
     },
     {
       "name": "Linux & Self-Hosting",
@@ -159,13 +159,13 @@
       "name": "Plugins & Integrations",
       "icon": "fas fa-plug",
       "keywords": ["Plex", "Jellyfin", "Emby", "TMDB", "TVDB", "Fanart.tv", "Bludit plugins", "CMS plugins", "API design", "PIN-based auth"],
-      "evidence": "Eight PHP plugins extend Bludit. Marquee and Glimpse read Plex, Jellyfin, and Emby, and pull art from TMDB."
+      "evidence": "Eight PHP plugins extend Bludit. Marquee sources Plex artwork from TMDB, TVDB, and Fanart.tv. Glimpse reads Plex, Jellyfin, and Emby."
     },
     {
       "name": "CLI & Shell Tooling",
       "icon": "fas fa-terminal",
       "keywords": ["Bash", "curses TUI", "fzf", "jq", "xmlstarlet", "Self-updating scripts"],
-      "evidence": "CLIX and Ludanta are pure Bash with built-in updaters. fail2ban-tui is curses on the Python standard library."
+      "evidence": "CLIX and Ludanta are pure Bash with built-in updaters. fail2ban-tui is a curses interface built on the Python standard library."
     },
     {
       "name": "AI-Assisted Development",
@@ -268,7 +268,7 @@
       "endDate": "Present",
       "highlights": [
         "Design and build custom sites for individuals, organizations, and businesses.",
-        "Support clients by email, phone, and forum, resolving email and website issues.",
+        "Support clients by email, phone, and forum, resolving hosting and website issues.",
         "Handle ongoing maintenance, monthly updates, and search engine optimization."
       ]
     },
