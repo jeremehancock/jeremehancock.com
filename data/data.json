@@ -4,7 +4,11 @@
     "shortName": "Jereme Hancock",
     "image": "images/profile.jpg",
     "headline": "I'm just a guy who likes to tinker.",
-    "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project — then write about the whole mess.",
+    "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project, then write about the whole mess.",
+    "resumePdf": {
+      "label": "Résumé (PDF)",
+      "file": "jereme-hancock-resume.pdf"
+    },
     "roles": [
       "Software Developer",
       "Homelab Tinkerer",
@@ -63,7 +67,7 @@
       "name": "RetroCities",
       "domain": "retrocities.jereme.dev",
       "tag": "Retro Portfolio",
-      "description": "A nostalgic, GeoCities-style portfolio — neon colors, a scrolling marquee, beveled Windows 95 panels, and all the 90s charm.",
+      "description": "A nostalgic, GeoCities-style portfolio: neon colors, a scrolling marquee, beveled Windows 95 panels, and all the 90s charm.",
       "cta": "Time travel",
       "url": "https://retrocities.jereme.dev",
       "icon": "fas fa-compact-disc",
@@ -73,7 +77,7 @@
   "projects": [
     {
       "name": "CLIX",
-      "description": "A Plex media player that lives entirely in your terminal — browse and play your library without leaving the command line.",
+      "description": "A Plex media player that lives entirely in your terminal. Browse and play your library without leaving the command line.",
       "image": "images/projects/clix.png",
       "url": "https://github.com/jeremehancock/CLIX",
       "tags": ["Plex", "Terminal", "Media"]
@@ -87,7 +91,7 @@
     },
     {
       "name": "Stickies",
-      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies — just open index.html in a browser.",
+      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies. Just open index.html in a browser.",
       "image": "images/projects/stickies-updated.png",
       "url": "https://stickies.dumbprojects.com",
       "tags": ["Notes", "Private", "Offline"]
@@ -108,37 +112,99 @@
     },
     {
       "name": "Random Goat",
-      "description": "Exactly what it sounds like — a delightfully pointless source of random goat GIFs whenever you need one.",
+      "description": "Exactly what it sounds like: a delightfully pointless source of random goat GIFs whenever you need one.",
       "image": "images/projects/random-goat.png",
       "url": "https://randomgoat.com",
       "tags": ["Fun", "GIFs", "Goats"]
     }
   ],
+  "skills": [
+    {
+      "name": "Languages",
+      "icon": "fas fa-code",
+      "keywords": ["PHP", "JavaScript", "TypeScript", "Python", "Bash", "SQL", "HTML", "CSS"],
+      "evidence": "Bash leads at 42 repositories, then JavaScript at 34, PHP at 33, and Python at 15, across 111 public repos."
+    },
+    {
+      "name": "Backend & APIs",
+      "icon": "fas fa-server",
+      "keywords": ["PHP 8.4", "Slim 4", "PSR-4", "PHP-DI", "Twig", "Guzzle", "Monolog", "SQLite", "PDO", "REST", "XML"],
+      "evidence": "Marquee's 106 classes run on Slim 4, with PSR-4 autoloading, PHP-DI wiring, Twig views, and a SQLite store."
+    },
+    {
+      "name": "Frontend",
+      "icon": "fas fa-window-maximize",
+      "keywords": ["React", "TypeScript", "MUI", "Emotion", "Storybook", "Design systems", "Next.js", "Vanilla JS", "PWA", "Service Workers", "SVG", "Accessibility"],
+      "evidence": "UnderCurrent is a React/MUI design system of roughly 100 components. homelab.md is one dependency-free file."
+    },
+    {
+      "name": "Testing & Code Quality",
+      "icon": "fas fa-vial-circle-check",
+      "keywords": ["PHPUnit", "PHPStan", "PHP-CS-Fixer", "ESLint", "Prettier", "QE/QA"],
+      "evidence": "Marquee runs PHPStan at level 10, its strictest, with 74 test files over 106 source files, gated on every push."
+    },
+    {
+      "name": "DevOps & CI/CD",
+      "icon": "fas fa-cubes",
+      "keywords": ["Docker", "Docker Compose", "Multi-stage builds", "GitHub Actions", "Buildx", "QEMU", "Docker Hub", "Ansible", "Vagrant", "Nginx", "php-fpm"],
+      "evidence": "GitHub Actions lints, tests, builds, and ships multi-arch amd64 and arm64 images straight to Docker Hub."
+    },
+    {
+      "name": "Linux & Self-Hosting",
+      "icon": "fab fa-linux",
+      "keywords": ["Ubuntu", "Debian packaging", "APT repos", "systemd", "cron", "Proxmox", "Raspberry Pi", "Prometheus", "Grafana", "Node Exporter"],
+      "evidence": "UbuntuCE was a branded Ubuntu remix with hosted APT repos. A Pi cluster runs Prometheus and Grafana via Ansible."
+    },
+    {
+      "name": "Plugins & Integrations",
+      "icon": "fas fa-plug",
+      "keywords": ["Plex", "Jellyfin", "Emby", "TMDB", "TVDB", "Fanart.tv", "Bludit plugins", "CMS plugins", "API design", "PIN-based auth"],
+      "evidence": "Eight PHP plugins extend Bludit. Marquee and Glimpse read Plex, Jellyfin, and Emby, and pull art from TMDB."
+    },
+    {
+      "name": "CLI & Shell Tooling",
+      "icon": "fas fa-terminal",
+      "keywords": ["Bash", "curses TUI", "fzf", "jq", "xmlstarlet", "Self-updating scripts"],
+      "evidence": "CLIX and Ludanta are pure Bash with built-in updaters. fail2ban-tui is curses on the Python standard library."
+    },
+    {
+      "name": "AI-Assisted Development",
+      "icon": "fas fa-robot",
+      "keywords": ["Spec-driven development", "OpenSpec", "Claude Code", "Prompt-to-product"],
+      "evidence": "Marquee is built spec-first with OpenSpec. AI Game Collection and Dumb Projects are portfolios of AI-built apps."
+    }
+  ],
   "resume": [
     {
       "type": "work",
-      "company": "Liquid Web",
+      "company": "Nexcess/Liquid Web",
       "position": "Software Developer II",
       "website": "liquidweb.com",
       "startDate": "2021",
       "endDate": "Present",
       "highlights": [
-        "UI development for our customer facing control panels.",
-        "Full stack development in a fast paced organization.",
-        "Perform QE/QA tasks for a variety of projects."
+        "Build and maintain the UI for our customer-facing control panels.",
+        {
+          "text": "One of the original developers of UnderCurrent, the Nexcess design system, and a primary contributor since: roughly 100 React components, a full theming layer, and its own Storybook.",
+          "url": "https://undercurrent.nexcess.com/",
+          "linkLabel": "Storybook"
+        },
+        "Work across the full stack in a fast-paced release environment.",
+        "Ran team-side QE/QA across a wide range of projects.",
+        "Promoted from Software Developer I in 2021."
       ]
     },
     {
       "type": "work",
-      "company": "Liquid Web",
+      "company": "Nexcess/Liquid Web",
       "position": "Software Developer I",
       "website": "liquidweb.com",
       "startDate": "2016",
       "endDate": "2021",
       "highlights": [
-        "UI development for our customer facing control panels.",
-        "Full stack development in a fast paced organization.",
-        "Performed QE/QA tasks for a variety of projects."
+        "Shipped UI features for the customer-facing control panels.",
+        "Contributed full-stack work across a fast-moving codebase.",
+        "Handled team-side QE/QA on a variety of projects."
       ]
     },
     {
@@ -149,9 +215,9 @@
       "startDate": "2014",
       "endDate": "2016",
       "highlights": [
-        "Managed the development of the Cloud Sites Control Panel.",
-        "Worked closesly with Engineering and System Operations to implement improvements to the Cloud Sites product.",
-        "Ensured that the Cloud Sites product was focused on continuous improvements."
+        "Managed development of the Cloud Sites control panel.",
+        "Worked closely with Engineering and Systems Operations to ship product improvements.",
+        "Kept Cloud Sites on a continuous-improvement track."
       ]
     },
     {
@@ -162,9 +228,9 @@
       "startDate": "2013",
       "endDate": "2014",
       "highlights": [
-        "Developed and maintained procedures to ensure efficiency within support department.",
-        "Built various web applications for customer's and support staff.",
-        "Liaised with our Development and Engineering teams."
+        "Built and maintained procedures that kept the support department running efficiently.",
+        "Built web applications for customers and support staff.",
+        "Served as liaison to the Development and Engineering teams."
       ]
     },
     {
@@ -175,9 +241,10 @@
       "startDate": "2012",
       "endDate": "2013",
       "highlights": [
-        "Delivered Fanatical customer support via phone, chat, and ticket systems.",
-        "Troubleshot complex issues in a load-balanced, clustered hosting environment.",
-        "Handled various levels of customer escalations."
+        "Administered Linux servers in load-balanced, clustered hosting environments.",
+        "Troubleshot complex, multi-server failures for customers.",
+        "Handled escalated customer issues by phone, chat, and ticket.",
+        "Promoted from Support Technician in 2012."
       ]
     },
     {
@@ -188,21 +255,21 @@
       "startDate": "2011",
       "endDate": "2012",
       "highlights": [
-        "Delivered Fanatical customer support via phone, chat, and ticket systems.",
-        "Troubleshot complex issues in a load-balanced, clustered hosting environment.",
-        "Handled various levels of customer escalations."
+        "Delivered Fanatical Support by phone, chat, and ticket.",
+        "Troubleshot customer hosting issues and drove them to resolution.",
+        "Handled customer escalations at every level."
       ]
     },
     {
       "type": "work",
       "company": "Freelance",
-      "position": "Web Design/Development",
+      "position": "Web Design & Development",
       "startDate": "2004",
       "endDate": "Present",
       "highlights": [
-        "Designed custom special interest websites for personal use and by contract for various organizations and businesses.",
-        "Provided flexible, responsive customer support via email, telephone, and online forums to resolve email and website issues.",
-        "Maintained and provided full spectrum support to include search engine optimization and monthly updates."
+        "Design and build custom sites for individuals, organizations, and businesses.",
+        "Support clients by email, phone, and forum, resolving email and website issues.",
+        "Handle ongoing maintenance, monthly updates, and search engine optimization."
       ]
     },
     {
@@ -213,17 +280,20 @@
       "startDate": "2004",
       "endDate": "2005",
       "highlights": [
-        "Advised Principal Investigators at U.S. research institutions applying for confidentiality certificates for their research projects.",
-        "Reviewed/facilitated all financial disclosure, outside activities, official duty requests, and sponsored travel forms for all NIMH employees.",
-        "Developed/maintained information systems for managing and producing reports tailored to a broad spectrum of data requests."
+        "Advised Principal Investigators at U.S. research institutions applying for research confidentiality certificates.",
+        "Reviewed financial disclosure, outside activity, official duty, and sponsored travel filings for every NIMH employee.",
+        "Built and maintained the information systems that produced reports for a broad range of data requests."
       ]
     },
     {
       "type": "education",
-      "institution": "NWOSU",
+      "institution": "Northwestern Oklahoma State University (NWOSU)",
+      "url": "https://www.nwosu.edu/",
       "area": "Business Administration",
       "studyType": "B.S.",
-      "highlights": ["Selected as Most Promising E-commerce student by faculty"]
+      "highlights": [
+        "Named Most Promising E-commerce Student by faculty. The web habit stuck."
+      ]
     }
   ]
 }
