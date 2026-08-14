@@ -742,6 +742,65 @@
 			padding: 0.25rem 0.7rem;
 		}
 
+		/* ---------- Skills ---------- */
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.skill-card {
+			padding: 1.6rem 1.6rem 1.7rem;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.skill-head {
+			display: flex;
+			align-items: center;
+			gap: 0.9rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.skill-icon {
+			flex-shrink: 0;
+			width: 44px;
+			height: 44px;
+			border-radius: 12px;
+			display: grid;
+			place-items: center;
+			font-size: 1.1rem;
+			color: var(--accent-2);
+			background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+			border: 1px solid color-mix(in srgb, var(--accent-2) 32%, transparent);
+		}
+
+		.skill-head h3 {
+			font-size: 1.12rem;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+		}
+
+		.skill-card .tags {
+			margin-top: 1.2rem;
+			/* Guarantees a gap above the rule even when auto margin collapses. */
+			margin-bottom: 0.75rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.skill-evidence {
+			margin-top: auto;
+			padding-top: 1.1rem;
+			border-top: 1px solid var(--border);
+			color: var(--text-muted);
+			font-size: 0.88rem;
+			line-height: 1.6;
+			position: relative;
+			z-index: 2;
+		}
+
 		/* ---------- Resume timeline ---------- */
 		.timeline {
 			position: relative;
@@ -825,6 +884,23 @@
 			color: var(--accent-2);
 		}
 
+		.tl-org-link {
+			display: inline-flex;
+			align-items: baseline;
+			gap: 0.4rem;
+			border-bottom: 1px solid transparent;
+		}
+
+		.tl-org-link i {
+			font-size: 0.68em;
+		}
+
+		@media (hover: hover) {
+			.tl-org-link:hover {
+				border-bottom-color: currentColor;
+			}
+		}
+
 		.tl-date {
 			font-family: var(--mono);
 			font-size: 0.82rem;
@@ -859,6 +935,27 @@
 
 		.tl-item.edu .tl-card li::before {
 			background: var(--accent-2);
+		}
+
+		.hi-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			white-space: nowrap;
+			font-size: 0.82rem;
+			font-weight: 600;
+			color: var(--accent-2);
+			border-bottom: 1px solid transparent;
+		}
+
+		.hi-link i {
+			font-size: 0.7rem;
+		}
+
+		@media (hover: hover) {
+			.hi-link:hover {
+				border-bottom-color: currentColor;
+			}
 		}
 
 		/* ---------- Footer ---------- */
@@ -953,7 +1050,8 @@
 				grid-template-columns: 1fr;
 			}
 
-			.projects-grid {
+			.projects-grid,
+			.skills-grid {
 				grid-template-columns: 1fr;
 			}
 
@@ -1004,6 +1102,7 @@
 					<li><a href="#home" class="active">Home</a></li>
 					<li><a href="#sites">Sites</a></li>
 					<li><a href="#projects">Projects</a></li>
+					<li><a href="#skills">Skills</a></li>
 					<li><a href="#resume">Résumé</a></li>
 				</ul>
 			</div>
@@ -1051,6 +1150,18 @@
 			</div>
 		</section>
 
+		<!-- Skills -->
+		<section id="skills">
+			<div class="container">
+				<div class="section-head reveal">
+					<span class="eyebrow"><i class="fas fa-layer-group"></i> What I work with</span>
+					<h2>Skills <span class="gradient-text">&amp; tooling</span></h2>
+					<p>The stack behind the projects above — each group backed by code you can go read.</p>
+				</div>
+				<div class="skills-grid" id="skillsGrid"></div>
+			</div>
+		</section>
+
 		<!-- Resume -->
 		<section id="resume">
 			<div class="container">
@@ -1079,7 +1190,7 @@
 
 		async function loadData() {
 			try {
-				const res = await fetch('data/data.json?v=2', { cache: 'no-store' });
+				const res = await fetch('data/data.json?v=3', { cache: 'no-store' });
 				return await res.json();
 			} catch (e) {
 				console.error('Error loading data:', e);
@@ -1160,19 +1271,52 @@
 			}).join('');
 		}
 
+		/* ---------- Render: skills ---------- */
+		function renderSkills(skills) {
+			const grid = document.getElementById('skillsGrid');
+			grid.innerHTML = skills.map(s => {
+				const tags = (s.keywords || []).map(k => `<span class="tag">${esc(k)}</span>`).join('');
+				const ev = s.evidence ? `<p class="skill-evidence">${esc(s.evidence)}</p>` : '';
+				return `
+				<div class="card skill-card spotlight reveal">
+					<div class="skill-head">
+						<span class="skill-icon"><i class="${esc(s.icon)}" aria-hidden="true"></i></span>
+						<h3>${esc(s.name)}</h3>
+					</div>
+					<div class="tags">${tags}</div>
+					${ev}
+				</div>`;
+			}).join('');
+		}
+
 		/* ---------- Render: resume timeline ---------- */
+		const dateRange = (o = {}) => {
+			if (!o.startDate && !o.endDate) return '';
+			const sep = (o.startDate && o.endDate) ? ' — ' : '';
+			return `${esc(o.startDate || '')}${sep}${esc(o.endDate || '')}`;
+		};
+
 		function renderResume(items) {
 			const tl = document.getElementById('timeline');
 			tl.innerHTML = items.map(item => {
 				const isEdu = item.type === 'education';
 				const pos = isEdu ? `${esc(item.studyType)} in ${esc(item.area)}` : esc(item.position);
-				const org = isEdu ? esc(item.institution) : esc(item.company || '');
-				let date = '';
-				if (item.startDate || item.endDate) {
-					const sep = (item.startDate && item.endDate) ? ' — ' : '';
-					date = `${esc(item.startDate || '')}${sep}${esc(item.endDate || '')}`;
-				}
-				const hi = (item.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
+				const orgName = isEdu ? item.institution : (item.company || '');
+				// An org links out when the entry carries a url.
+				const org = orgName && item.url
+					? `<a class="tl-org-link" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(orgName)}
+						<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`
+					: esc(orgName);
+				const date = dateRange(item);
+				// A highlight is plain text, or an object carrying a link.
+				const hi = (item.highlights || []).map(h => {
+					if (typeof h === 'string') return `<li>${esc(h)}</li>`;
+					const link = h.url
+						? ` <a class="hi-link" href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.linkLabel || 'View')}
+							<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`
+						: '';
+					return `<li>${esc(h.text)}${link}</li>`;
+				}).join('');
 				return `
 				<div class="tl-item reveal ${isEdu ? 'edu' : ''}">
 					<div class="tl-card">
@@ -1288,6 +1432,7 @@
 			renderFooterSocials(b.contacts || []);
 			renderSites(data.sites || []);
 			renderProjects(data.projects || []);
+			renderSkills(data.skills || []);
 			renderResume(data.resume || []);
 
 			document.getElementById('copyYear').textContent =
