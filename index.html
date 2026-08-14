@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-	<title>Michael Jereme Hancock — Developer & Tinkerer</title>
+	<title>Michael Jereme Hancock · Developer & Tinkerer</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="description"
-		content="Michael Jereme Hancock — software developer and homelab tinkerer. Projects, writing, and a few corners of the web I call my own." />
+		content="Michael Jereme Hancock, software developer and homelab tinkerer. Projects, writing, and a few corners of the web I call my own." />
 	<meta name="theme-color" content="#0a0a12" />
 
-	<meta property="og:title" content="Michael Jereme Hancock — Developer & Tinkerer" />
+	<meta property="og:title" content="Michael Jereme Hancock · Developer & Tinkerer" />
 	<meta property="og:type" content="website" />
 	<meta property="og:description"
 		content="Software developer and homelab tinkerer. Projects, writing, and a few corners of the web I call my own." />
@@ -1132,7 +1132,7 @@
 				<div class="section-head reveal">
 					<span class="eyebrow"><i class="fas fa-compass"></i> Around the web</span>
 					<h2>My corners of <span class="gradient-text">the internet</span></h2>
-					<p>A few different sites I've built and run — each with its own personality.</p>
+					<p>A few different sites I've built and run, each with its own personality.</p>
 				</div>
 				<div class="sites-grid" id="sitesGrid"></div>
 			</div>
@@ -1156,7 +1156,7 @@
 				<div class="section-head reveal">
 					<span class="eyebrow"><i class="fas fa-layer-group"></i> What I work with</span>
 					<h2>Skills <span class="gradient-text">&amp; tooling</span></h2>
-					<p>The stack behind the projects above — each group backed by code you can go read.</p>
+					<p>The stack behind the projects above, each group backed by code you can go read.</p>
 				</div>
 				<div class="skills-grid" id="skillsGrid"></div>
 			</div>
@@ -1232,7 +1232,7 @@
 			const grid = document.getElementById('sitesGrid');
 			grid.innerHTML = sites.map(s => `
 				<a class="card site-card spotlight reveal" href="${esc(s.url)}" target="_blank" rel="noopener"
-				   style="--accent-c:${esc(s.accent || 'var(--accent)')}" aria-label="${esc(s.name)} — ${esc(s.domain)}">
+				   style="--accent-c:${esc(s.accent || 'var(--accent)')}" aria-label="${esc(s.name)}, ${esc(s.domain)}">
 					<div class="chrome">
 						<span class="dots"><i></i><i></i><i></i></span>
 						<span class="url">${esc(s.domain)}</span>
@@ -1292,7 +1292,7 @@
 		/* ---------- Render: resume timeline ---------- */
 		const dateRange = (o = {}) => {
 			if (!o.startDate && !o.endDate) return '';
-			const sep = (o.startDate && o.endDate) ? ' — ' : '';
+			const sep = (o.startDate && o.endDate) ? ' – ' : '';
 			return `${esc(o.startDate || '')}${sep}${esc(o.endDate || '')}`;
 		};
 
@@ -1421,7 +1421,7 @@
 			}
 
 			const b = data.basics;
-			document.title = `${b.name} — Developer & Tinkerer`;
+			document.title = `${b.name} · Developer & Tinkerer`;
 			elName.textContent = b.name;
 			document.getElementById('lead').textContent = b.tagline || b.headline || '';
 			const avatar = document.getElementById('avatar');

@@ -4,7 +4,7 @@
     "shortName": "Jereme Hancock",
     "image": "images/profile.jpg",
     "headline": "I'm just a guy who likes to tinker.",
-    "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project — then write about the whole mess.",
+    "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project, then write about the whole mess.",
     "roles": [
       "Software Developer",
       "Homelab Tinkerer",
@@ -63,7 +63,7 @@
       "name": "RetroCities",
       "domain": "retrocities.jereme.dev",
       "tag": "Retro Portfolio",
-      "description": "A nostalgic, GeoCities-style portfolio — neon colors, a scrolling marquee, beveled Windows 95 panels, and all the 90s charm.",
+      "description": "A nostalgic, GeoCities-style portfolio: neon colors, a scrolling marquee, beveled Windows 95 panels, and all the 90s charm.",
       "cta": "Time travel",
       "url": "https://retrocities.jereme.dev",
       "icon": "fas fa-compact-disc",
@@ -73,7 +73,7 @@
   "projects": [
     {
       "name": "CLIX",
-      "description": "A Plex media player that lives entirely in your terminal — browse and play your library without leaving the command line.",
+      "description": "A Plex media player that lives entirely in your terminal. Browse and play your library without leaving the command line.",
       "image": "images/projects/clix.png",
       "url": "https://github.com/jeremehancock/CLIX",
       "tags": ["Plex", "Terminal", "Media"]
@@ -87,7 +87,7 @@
     },
     {
       "name": "Stickies",
-      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies — just open index.html in a browser.",
+      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies. Just open index.html in a browser.",
       "image": "images/projects/stickies-updated.png",
       "url": "https://stickies.dumbprojects.com",
       "tags": ["Notes", "Private", "Offline"]
@@ -108,7 +108,7 @@
     },
     {
       "name": "Random Goat",
-      "description": "Exactly what it sounds like — a delightfully pointless source of random goat GIFs whenever you need one.",
+      "description": "Exactly what it sounds like: a delightfully pointless source of random goat GIFs whenever you need one.",
       "image": "images/projects/random-goat.png",
       "url": "https://randomgoat.com",
       "tags": ["Fun", "GIFs", "Goats"]
@@ -181,7 +181,7 @@
       "highlights": [
         "Build and maintain the UI for our customer-facing control panels.",
         {
-          "text": "One of the original developers of UnderCurrent, the Nexcess design system, and a primary contributor since — roughly 100 React components, a full theming layer, and its own Storybook.",
+          "text": "One of the original developers of UnderCurrent, the Nexcess design system, and a primary contributor since: roughly 100 React components, a full theming layer, and its own Storybook.",
           "url": "https://undercurrent.nexcess.com/",
           "linkLabel": "Storybook"
         },
@@ -288,7 +288,7 @@
       "area": "Business Administration",
       "studyType": "B.S.",
       "highlights": [
-        "Named Most Promising E-commerce Student by faculty — the web habit stuck."
+        "Named Most Promising E-commerce Student by faculty. The web habit stuck."
       ]
     }
   ]
