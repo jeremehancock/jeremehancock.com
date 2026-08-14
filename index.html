@@ -1210,9 +1210,11 @@
 		const isExternal = (url = '') => /^https?:/i.test(url);
 
 		/* ---------- Render: contacts (hero buttons + footer) ---------- */
+		// Opens in a tab so the PDF can be read in the browser's viewer, which
+		// offers its own download button.
 		const resumeButton = (pdf, cls) => pdf
-			? `<a class="${cls}" href="${esc(pdf.file)}" download>
-					<i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+			? `<a class="${cls}" href="${esc(pdf.file)}" target="_blank" rel="noopener">
+					<i class="fas fa-file-pdf" aria-hidden="true"></i>
 					<span>${esc(pdf.label)}</span>
 				</a>`
 			: '';
