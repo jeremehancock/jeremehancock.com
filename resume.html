@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Michael Jereme Hancock · Résumé</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap'
+		rel='stylesheet'>
+	<style>
+		/*
+		 * Print-first résumé view. Renders from data/data.json so it can never
+		 * drift from the site. scripts/build-resume-pdf.sh turns it into the
+		 * downloadable PDF.
+		 */
+		:root {
+			--ink: #14141c;
+			--ink-soft: #43485c;
+			--ink-muted: #6d7285;
+			--rule: #dcdee7;
+			--accent: #5b3fd6;
+			--accent-2: #0f9c92;
+			--chip: #f1f2f7;
+			--font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			--mono: 'JetBrains Mono', ui-monospace, monospace;
+		}
+
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: var(--font);
+			color: var(--ink);
+			background: #fff;
+			font-size: 10.2pt;
+			line-height: 1.5;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.page {
+			max-width: 7.6in;
+			margin: 0 auto;
+			padding: 0.5in 0;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		/* ---------- Header ---------- */
+		header {
+			border-bottom: 2px solid var(--accent);
+			padding-bottom: 0.5rem;
+			margin-bottom: 1.1rem;
+		}
+
+		h1 {
+			font-size: 21pt;
+			font-weight: 800;
+			letter-spacing: -0.02em;
+			line-height: 1.1;
+		}
+
+		.roles {
+			font-family: var(--mono);
+			font-size: 8.6pt;
+			color: var(--accent-2);
+			letter-spacing: 0.02em;
+			margin-top: 0.15rem;
+		}
+
+		.contacts {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.9rem;
+			margin-top: 0.5rem;
+			font-size: 9pt;
+			color: var(--ink-soft);
+		}
+
+		.contacts span::before {
+			content: '';
+			display: inline-block;
+			width: 3px;
+			height: 3px;
+			border-radius: 50%;
+			background: var(--accent);
+			vertical-align: 0.14em;
+			margin-right: 0.45rem;
+		}
+
+		/* ---------- Section headings ---------- */
+		h2 {
+			font-size: 9pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.13em;
+			color: var(--accent);
+			padding-bottom: 0.25rem;
+			border-bottom: 1px solid var(--rule);
+			margin-bottom: 0.7rem;
+		}
+
+		section {
+			margin-bottom: 1.2rem;
+		}
+
+		/* ---------- Skills ---------- */
+		.skills {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0.55rem 1.4rem;
+		}
+
+		.skill {
+			break-inside: avoid;
+		}
+
+		.skill h3 {
+			font-size: 9.4pt;
+			font-weight: 700;
+			margin-bottom: 0.18rem;
+		}
+
+		.skill .kw {
+			font-size: 8.8pt;
+			color: var(--ink-soft);
+			line-height: 1.45;
+		}
+
+		.skill .ev {
+			font-size: 8.2pt;
+			color: var(--ink-muted);
+			margin-top: 0.12rem;
+		}
+
+		/* Long unbroken tokens (fail2ban-tui, PHP-CS-Fixer) must not overrun. */
+		.skill .kw,
+		.skill .ev {
+			overflow-wrap: break-word;
+		}
+
+		/* ---------- Experience ---------- */
+		.entry {
+			margin-bottom: 0.75rem;
+			break-inside: avoid;
+		}
+
+		.entry:last-child {
+			margin-bottom: 0;
+		}
+
+		.entry-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 1rem;
+		}
+
+		.entry-pos {
+			font-size: 10.6pt;
+			font-weight: 700;
+		}
+
+		.entry-org {
+			font-size: 9.4pt;
+			font-weight: 500;
+			color: var(--accent);
+		}
+
+		.edu .entry-org {
+			color: var(--accent-2);
+		}
+
+		.entry-date {
+			font-family: var(--mono);
+			font-size: 8.4pt;
+			color: var(--ink-muted);
+			white-space: nowrap;
+		}
+
+		.entry ul {
+			list-style: none;
+			margin-top: 0.25rem;
+		}
+
+		.entry li {
+			position: relative;
+			padding-left: 0.85rem;
+			color: var(--ink-soft);
+			font-size: 9.3pt;
+			line-height: 1.45;
+		}
+
+		.entry li::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0.56em;
+			width: 3.5px;
+			height: 3.5px;
+			border-radius: 50%;
+			background: var(--accent);
+		}
+
+		.edu li::before {
+			background: var(--accent-2);
+		}
+
+		.entry li a {
+			color: var(--accent-2);
+			font-weight: 600;
+			white-space: nowrap;
+		}
+
+		footer {
+			margin-top: 1.1rem;
+			padding-top: 0.5rem;
+			border-top: 1px solid var(--rule);
+			font-size: 8.2pt;
+			color: var(--ink-muted);
+			display: flex;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+
+		/* ---------- Print ---------- */
+		@page {
+			size: Letter;
+			margin: 0.5in 0.55in;
+		}
+
+		@media print {
+			.page {
+				max-width: none;
+				padding: 0;
+			}
+
+			body {
+				font-size: 10pt;
+			}
+		}
+
+		/* On screen, sit the sheet on a soft backdrop so it reads as a document. */
+		@media screen {
+			body {
+				background: #eceef4;
+				padding: 1.5rem 1rem;
+			}
+
+			.page {
+				background: #fff;
+				padding: 0.55in 0.6in;
+				border-radius: 6px;
+				box-shadow: 0 18px 50px -18px rgba(0, 0, 0, 0.35);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page" id="page"></div>
+
+	<script>
+		const esc = (s = '') => String(s)
+			.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+		const dateRange = (o = {}) => {
+			if (!o.startDate && !o.endDate) return '';
+			const sep = (o.startDate && o.endDate) ? ' – ' : '';
+			return `${esc(o.startDate || '')}${sep}${esc(o.endDate || '')}`;
+		};
+
+		function renderSkills(skills) {
+			if (!skills.length) return '';
+			const cards = skills.map(s => `
+				<div class="skill">
+					<h3>${esc(s.name)}</h3>
+					<div class="kw">${(s.keywords || []).map(esc).join(' · ')}</div>
+					${s.evidence ? `<div class="ev">${esc(s.evidence)}</div>` : ''}
+				</div>`).join('');
+			return `<section><h2>Skills &amp; Tooling</h2><div class="skills">${cards}</div></section>`;
+		}
+
+		function renderEntries(items) {
+			return items.map(item => {
+				const isEdu = item.type === 'education';
+				const pos = isEdu ? `${esc(item.studyType)} in ${esc(item.area)}` : esc(item.position);
+				const orgName = isEdu ? item.institution : (item.company || '');
+				const org = orgName && item.url
+					? `<a href="${esc(item.url)}">${esc(orgName)}</a>`
+					: esc(orgName);
+				const date = dateRange(item);
+				const hi = (item.highlights || []).map(h => {
+					if (typeof h === 'string') return `<li>${esc(h)}</li>`;
+					const link = h.url ? ` <a href="${esc(h.url)}">${esc(h.url.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>` : '';
+					return `<li>${esc(h.text)}${link}</li>`;
+				}).join('');
+				return `
+				<div class="entry ${isEdu ? 'edu' : ''}">
+					<div class="entry-top">
+						<div>
+							<div class="entry-pos">${pos}</div>
+							${org ? `<div class="entry-org">${org}</div>` : ''}
+						</div>
+						${date ? `<div class="entry-date">${date}</div>` : ''}
+					</div>
+					${hi ? `<ul>${hi}</ul>` : ''}
+				</div>`;
+			}).join('');
+		}
+
+		async function init() {
+			const res = await fetch('data/data.json', { cache: 'no-store' });
+			const data = await res.json();
+			const b = data.basics;
+
+			const contacts = (b.contacts || []).map(c => `<span>${esc(c.value)}</span>`).join('');
+			const work = (data.resume || []).filter(i => i.type !== 'education');
+			const edu = (data.resume || []).filter(i => i.type === 'education');
+
+			document.getElementById('page').innerHTML = `
+				<header>
+					<h1>${esc(b.name)}</h1>
+					<div class="roles">${(b.roles || []).map(esc).join('  ·  ')}</div>
+					<div class="contacts"><span>jeremehancock.com</span>${contacts}</div>
+				</header>
+				${renderSkills(data.skills || [])}
+				<section><h2>Experience</h2>${renderEntries(work)}</section>
+				${edu.length ? `<section><h2>Education</h2>${renderEntries(edu)}</section>` : ''}
+				<footer>
+					<span>${esc(b.headline || '')}</span>
+					<span>jeremehancock.com</span>
+				</footer>`;
+
+			document.title = `${b.name} · Résumé`;
+			document.body.dataset.ready = 'true';
+		}
+
+		document.addEventListener('DOMContentLoaded', init);
+	</script>
+</body>
+
+</html>

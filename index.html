@@ -297,6 +297,10 @@
 			font-size: 1.05rem;
 		}
 
+		.head-actions:not(:empty) {
+			margin-top: 1.6rem;
+		}
+
 		.gradient-text {
 			background: linear-gradient(120deg, #fff 0%, var(--accent) 55%, var(--accent-2) 100%);
 			-webkit-background-clip: text;
@@ -1169,6 +1173,7 @@
 					<span class="eyebrow"><i class="fas fa-timeline"></i> The journey</span>
 					<h2>Experience <span class="gradient-text">&amp; education</span></h2>
 					<p>Where I've worked and what I've been up to over the years.</p>
+					<div class="head-actions" id="resumeDownload"></div>
 				</div>
 				<div class="timeline" id="timeline"></div>
 			</div>
@@ -1205,9 +1210,16 @@
 		const isExternal = (url = '') => /^https?:/i.test(url);
 
 		/* ---------- Render: contacts (hero buttons + footer) ---------- */
-		function renderHeroActions(contacts) {
+		const resumeButton = (pdf, cls) => pdf
+			? `<a class="${cls}" href="${esc(pdf.file)}" download>
+					<i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+					<span>${esc(pdf.label)}</span>
+				</a>`
+			: '';
+
+		function renderHeroActions(contacts, resumePdf) {
 			const wrap = document.getElementById('heroActions');
-			wrap.innerHTML = contacts.map((c, i) => {
+			const links = contacts.map((c, i) => {
 				const ext = isExternal(c.url) ? ' target="_blank" rel="noopener"' : '';
 				const cls = i === 0 ? 'btn btn-primary' : 'btn';
 				return `<a class="${cls}" href="${esc(c.url)}"${ext}>
@@ -1215,6 +1227,7 @@
 							<span>${esc(c.label || c.value)}</span>
 						</a>`;
 			}).join('');
+			wrap.innerHTML = links + resumeButton(resumePdf, 'btn');
 		}
 
 		function renderFooterSocials(contacts) {
@@ -1428,7 +1441,9 @@
 			avatar.src = b.image;
 			avatar.alt = b.name;
 
-			renderHeroActions(b.contacts || []);
+			renderHeroActions(b.contacts || [], b.resumePdf);
+			document.getElementById('resumeDownload').innerHTML =
+				resumeButton(b.resumePdf, 'btn btn-primary');
 			renderFooterSocials(b.contacts || []);
 			renderSites(data.sites || []);
 			renderProjects(data.projects || []);

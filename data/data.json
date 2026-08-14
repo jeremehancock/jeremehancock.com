@@ -5,6 +5,10 @@
     "image": "images/profile.jpg",
     "headline": "I'm just a guy who likes to tinker.",
     "tagline": "I build self-hosted tools, AI experiments, and the occasional gloriously dumb project, then write about the whole mess.",
+    "resumePdf": {
+      "label": "Download résumé",
+      "file": "jereme-hancock-resume.pdf"
+    },
     "roles": [
       "Software Developer",
       "Homelab Tinkerer",
