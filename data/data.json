@@ -104,7 +104,7 @@
       "description": "A growing collection of small, games built using AI that you can jump into right from your browser.",
       "image": "images/projects/ai-game-collection-updated-2.png",
       "url": "https://aigamecollection.com",
-      "tags": ["AI", "Games", "Android"]
+      "tags": ["AI", "Games", "PWA"]
     },
     {
       "name": "Random Goat",
