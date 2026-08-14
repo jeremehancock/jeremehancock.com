@@ -11,7 +11,7 @@ need nothing but a JSON edit.
 
 ## Résumé PDF
 
-The **View résumé** buttons point at `jereme-hancock-resume.pdf`, a committed
+The **Résumé (PDF)** buttons point at `jereme-hancock-resume.pdf`, a committed
 file. It is generated from [`resume.html`](resume.html), a print-first view that
 reads the same `data/data.json` as the site, so the two cannot drift apart.
 
