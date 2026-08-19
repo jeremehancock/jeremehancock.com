@@ -99,7 +99,7 @@
     {
       "name": "Marquee",
       "description": "A web app for managing and curating your Plex poster art, making your media library look exactly the way you want.",
-      "image": "images/projects/marquee-new.png",
+      "image": "images/projects/marquee-now.png",
       "url": "https://getmarquee.now",
       "tags": ["Plex", "Posters", "Media"]
     },
