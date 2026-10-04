@@ -90,11 +90,11 @@
       "tags": ["Homelab", "Docs", "Offline"]
     },
     {
-      "name": "Stickies",
-      "description": "A sleek, single-file sticky-note whiteboard for quickly capturing ideas. No build step, no dependencies. Just open index.html in a browser.",
-      "image": "images/projects/stickies-new.png",
-      "url": "https://stickies.dumbprojects.com",
-      "tags": ["Notes", "Private", "Offline"]
+      "name": "Cinemetric",
+      "description": "A Claude Code plugin for Plex. Ask Claude about your library, server health, and who's been watching, and get plain-English reports. Read-only, so nothing on your server is ever changed.",
+      "image": "images/projects/cinemetric.png",
+      "url": "https://cinemetric.dev",
+      "tags": ["Plex", "Claude Code", "AI"]
     },
     {
       "name": "Marquee",
