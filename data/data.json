@@ -104,11 +104,11 @@
       "tags": ["Plex", "Posters", "Media"]
     },
     {
-      "name": "AI Game Collection",
-      "description": "A growing collection of small games built with AI that you can jump into right from your browser.",
-      "image": "images/projects/ai-game-collection-updated-2.png",
-      "url": "https://aigamecollection.com",
-      "tags": ["AI", "Games", "PWA"]
+      "name": "LeafMD",
+      "description": "A markdown editor for Linux that's simple on purpose. Read your document formatted like GitHub, flip to the raw text to edit, or see both side by side.",
+      "image": "images/projects/leafmd.png",
+      "url": "https://leafmd.app",
+      "tags": ["Linux", "Markdown", "Rust"]
     },
     {
       "name": "Random Goat",
