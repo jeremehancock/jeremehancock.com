@@ -76,43 +76,43 @@
   ],
   "projects": [
     {
-      "name": "CLIX",
-      "description": "A Plex media player that lives entirely in your terminal. Browse and play your library without leaving the command line.",
-      "image": "images/projects/clix.png",
-      "url": "https://github.com/jeremehancock/CLIX",
-      "tags": ["Plex", "Terminal", "Media"]
-    },
-    {
-      "name": "homelab.md",
-      "description": "Offline-first homelab documentation that keeps your whole setup organized, searchable, and available even when the internet isn't.",
-      "image": "images/projects/homelab-improved-fixed.png",
-      "url": "https://github.com/jeremehancock/homelab.md",
-      "tags": ["Homelab", "Docs", "Offline"]
-    },
-    {
-      "name": "Cinemetric",
-      "description": "A Claude Code plugin for Plex. Ask Claude about your library, server health, and who's been watching, and get plain-English reports. Read-only, so nothing on your server is ever changed.",
-      "image": "images/projects/cinemetric.png",
-      "url": "https://cinemetric.dev",
-      "tags": ["Plex", "Claude Code", "AI"]
-    },
-    {
       "name": "Marquee",
-      "description": "A web app for managing and curating your Plex poster art, making your media library look exactly the way you want.",
+      "description": "A self-hosted poster manager for Plex. Swap the artwork for any movie, show, season, or collection, and lock it in so Plex won't overwrite it.",
       "image": "images/projects/marquee-now.png",
       "url": "https://getmarquee.now",
       "tags": ["Plex", "Posters", "Media"]
     },
     {
+      "name": "Glimpse",
+      "description": "Share your Plex, Jellyfin, or Emby library as a browsable wall of posters. People just open a link: no account, no app, and no access to your server.",
+      "image": "images/projects/glimpse.png",
+      "url": "https://getglimpse.now",
+      "tags": ["Plex", "Jellyfin", "Emby"]
+    },
+    {
+      "name": "Cinemetric",
+      "description": "A Claude Code plugin for Plex. Ask Claude about your library, server health, or who's been watching. Read-only, so nothing on your server is changed.",
+      "image": "images/projects/cinemetric.png",
+      "url": "https://cinemetric.dev",
+      "tags": ["Plex", "Claude Code", "AI"]
+    },
+    {
+      "name": "CLIX",
+      "description": "A Plex media player that lives entirely in your terminal. Search and play your movies, shows, and music without ever leaving the command line.",
+      "image": "images/projects/clix.png",
+      "url": "https://github.com/jeremehancock/CLIX",
+      "tags": ["Plex", "Terminal", "Media"]
+    },
+    {
       "name": "LeafMD",
-      "description": "A markdown editor for Linux that's simple on purpose. Read your document formatted like GitHub, flip to the raw text to edit, or see both side by side.",
+      "description": "A markdown editor for Linux that's simple on purpose. Read your document formatted like GitHub, flip to the raw text to edit, or see both at once.",
       "image": "images/projects/leafmd.png",
       "url": "https://leafmd.app",
       "tags": ["Linux", "Markdown", "Rust"]
     },
     {
       "name": "Random Goat",
-      "description": "Exactly what it sounds like: a delightfully pointless source of random goat GIFs whenever you need one.",
+      "description": "Exactly what it sounds like: a delightfully pointless source of random goat GIFs whenever you need one. Share your favorite or embed it on your site.",
       "image": "images/projects/random-goat.png",
       "url": "https://randomgoat.com",
       "tags": ["Fun", "GIFs", "Goats"]
